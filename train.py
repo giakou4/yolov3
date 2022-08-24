@@ -170,7 +170,7 @@ def train(hyp,  # path/to/hyp.yaml or hyp dictionary
     else:
         lf = one_cycle(1, hyp['lrf'], epochs)  # cosine 1->hyp['lrf']
     scheduler = lr_scheduler.LambdaLR(optimizer, lr_lambda=lf)  # plot_lr_scheduler(optimizer, scheduler, epochs)
-
+    scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=[300,400], gamma=0.1)
     # EMA
     ema = ModelEMA(model) if RANK in [-1, 0] else None
 
