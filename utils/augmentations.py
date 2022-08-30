@@ -24,7 +24,8 @@ class Albumentations:
             self.transform = A.Compose([
                             A.HorizontalFlip(p=0.5),
                             A.VerticalFlip(p=0.5),
-                            A.Rotate(limit=[-0.15, 0.15])],
+                            A.Rotate(limit=[-0.15, 0.15]),
+                            A.CLAHE(p=0.5), ],
                             bbox_params=A.BboxParams(format='yolo', label_fields=['class_labels']))
 
             LOGGER.info(colorstr('albumentations: ') + ', '.join(f'{x}' for x in self.transform.transforms if x.p))
