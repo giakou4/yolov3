@@ -29,7 +29,7 @@ class Albumentations:
                             #A.ColorJitter(p=0.5),
                             #A.HueSaturationValue(p=0.5),
                             A.RandomBrightness(p=0.2),
-                            A.RandomContrast(p=0.2),
+                            #A.RandomContrast(p=0.2),
                             ],
                             bbox_params=A.BboxParams(format='yolo', label_fields=['class_labels']))
 
